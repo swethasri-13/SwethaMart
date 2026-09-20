@@ -14,3 +14,4 @@ Easy navigation and organized shopping workflow.
 Simple design for a better shopping experience.
 Product management and order processing are included.
 Product management and order processing are included.
+SwethaMart is designed for smooth and convenient shopping.
