@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SwethaMart - Checkout</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f7f9;
+            color: #14213d;
+        }
+
+        .topbar {
+            height: 75px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4c8b6a;
+        }
+
+        .nav {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .cart-link {
+            background: #4c8b6a;
+            color: white !important;
+            padding: 10px 18px;
+            border-radius: 10px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 35px auto;
+        }
+
+        .page-title {
+            margin-bottom: 25px;
+        }
+
+        .page-title h1 {
+            font-size: 28px;
+        }
+
+        .page-title p {
+            color: #777;
+            margin-top: 6px;
+        }
+
+        .checkout-layout {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .card h2 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 9px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #4c8b6a;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .item-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .item-image {
+            width: 45px;
+            height: 45px;
+            background: #f1f4f6;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .item-info h3 {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .item-info p {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .item-price {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+            color: #555;
+        }
+
+        .total {
+            border-top: 1px solid #eee;
+            padding-top: 18px;
+            margin-top: 18px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #14213d;
+        }
+
+        .place-order {
+            width: 100%;
+            margin-top: 22px;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #4c8b6a;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .place-order:hover {
+            background: #3d7558;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 50px 20px;
+            color: #777;
+        }
+
+        @media (max-width: 800px) {
+
+            .checkout-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .topbar {
+                padding: 0 20px;
+            }
+
+            .nav {
+                gap: 10px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="logo">
+        🛍️ SwethaMart
+    </div>
+
+    <nav class="nav">
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="products.html">
+            Products
+        </a>
+
+        <a href="cart.html" class="cart-link">
+            🛒 Cart
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main class="container">
+
+    <div class="page-title">
+
+        <h1>
+            Checkout
+        </h1>
+
+        <p>
+            Complete your order details.
+        </p>
+
+    </div>
+
+
+    <div class="checkout-layout">
+
+
+        <!-- DELIVERY DETAILS -->
+
+        <div class="card">
+
+            <h2>
+                📍 Delivery Details
+            </h2>
+
+
+            <div class="form-group">
+
+                <label>
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="fullName"
+                    placeholder="Enter your name"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Enter phone number"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Delivery Address
+                </label>
+
+                <textarea
+                    id="address"
+                    placeholder="Enter your delivery address"
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Payment Method
+                </label>
+
+                <select id="paymentMethod">
+
+                    <option value="Cash on Delivery">
+                        Cash on Delivery
+                    </option>
+
+                    <option value="UPI">
+                        UPI
+                    </option>
+
+                    <option value="Card">
+                        Credit / Debit Card
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- ORDER SUMMARY -->
+
+        <div class="card">
+
+            <h2>
+                🛍️ Order Summary
+            </h2>
+
+            <div id="orderItems"></div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Items
+                </span>
+
+                <span id="itemCount">
+                    0
+                </span>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Subtotal
+                </span>
+
+                <span id="subtotal">
+                    ₹0
+                </span>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Delivery
+                </span>
+
+                <span>
+                    Free
+                </span>
+
+            </div>
+
+
+            <div class="summary-row total">
+
+                <span>
+                    Total
+                </span>
+
+                <span id="total">
+                    ₹0
+                </span>
+
+            </div>
+
+
+            <button
+                class="place-order"
+                onclick="placeOrder()"
+            >
+                ✅ Place Order
+            </button>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script>
+
+    let cart =
+        JSON.parse(localStorage.getItem("swethaCart")) || [];
+
+
+    function loadCheckout() {
+
+        const orderItems =
+            document.getElementById("orderItems");
+
+        orderItems.innerHTML = "";
+
+
+        if (cart.length === 0) {
+
+            orderItems.innerHTML = `
+                <div class="empty">
+                    <h3>Your cart is empty 🛒</h3>
+                    <p>Please add products before checkout.</p>
+                </div>
+            `;
+
+            document.getElementById("itemCount").textContent = "0";
+            document.getElementById("subtotal").textContent = "₹0";
+            document.getElementById("total").textContent = "₹0";
+
+            return;
+        }
+
+
+        let total = 0;
+        let count = 0;
+
+
+        cart.forEach(function(product) {
+
+            const productTotal =
+                product.price * product.quantity;
+
+            total += productTotal;
+
+            count += product.quantity;
+
+
+            orderItems.innerHTML += `
+
+                <div class="order-item">
+
+                    <div class="item-info">
+
+                        <div class="item-image">
+                            ${product.image}
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                ${product.name}
+                            </h3>
+
+                            <p>
+                                Qty: ${product.quantity}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="item-price">
+                        ₹${productTotal.toLocaleString("en-IN")}
+                    </div>
+
+                </div>
+
+            `;
+
+        });
+
+
+        document.getElementById("itemCount").textContent =
+            count;
+
+
+        document.getElementById("subtotal").textContent =
+            "₹" + total.toLocaleString("en-IN");
+
+
+        document.getElementById("total").textContent =
+            "₹" + total.toLocaleString("en-IN");
+
+    }
+
+
+    function placeOrder() {
+
+        if (cart.length === 0) {
+
+            alert("Your cart is empty!");
+
+            return;
+        }
+
+
+        const name =
+            document.getElementById("fullName").value.trim();
+
+        const phone =
+            document.getElementById("phone").value.trim();
+
+        const address =
+            document.getElementById("address").value.trim();
+
+        const payment =
+            document.getElementById("paymentMethod").value;
+
+
+        if (name === "" ||
+            phone === "" ||
+            address === "") {
+
+            alert(
+                "Please enter all delivery details."
+            );
+
+            return;
+        }
+
+
+        let total = 0;
+
+        cart.forEach(function(product) {
+
+            total +=
+                product.price * product.quantity;
+
+        });
+
+
+        alert(
+            "Order placed successfully! 🎉\n\n" +
+            "Customer: " + name + "\n" +
+            "Payment: " + payment + "\n" +
+            "Total: ₹" +
+            total.toLocaleString("en-IN")
+        );
+
+
+        // Clear cart after successful order
+
+        localStorage.removeItem("swethaCart");
+
+        window.location.href = "dashboard.html";
+
+    }
+
+
+    loadCheckout();
+
+</script>
+
+</body>
+</html>

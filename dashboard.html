@@ -63,16 +63,12 @@
                 <span>▥</span> Reports
             </a>
 
+            <!-- LOGOUT -->
+            <a href="login.html">
+                <span>↪</span> Logout
+            </a>
+
         </nav>
-
-        <div class="sidebar-bottom">
-            <h3>Grow your<br>business</h3>
-            <p>Manage products,<br>
-               orders and customers<br>
-               all in one place.</p>
-
-            <button>View Reports →</button>
-        </div>
 
         <div class="weather">
             <span>🌤️</span>
@@ -92,22 +88,29 @@
         <header class="topbar">
 
             <div class="search-box">
-                🔍
-                <input type="text"
-                       placeholder="Search products, orders, customers...">
+                <span>🔍</span>
+                <input
+                    type="text"
+                    id="productSearch"
+                    placeholder="Search products..."
+                >
             </div>
 
             <div class="top-right">
+
                 <span class="notification">♧</span>
 
                 <div class="top-profile">
                     <div class="small-circle">S</div>
+
                     <div>
                         <strong>Swetha</strong>
                         <small>Admin</small>
                     </div>
+
                     <span>⌄</span>
                 </div>
+
             </div>
 
         </header>
@@ -117,12 +120,14 @@
         <section class="welcome-banner">
 
             <div class="welcome-text">
+
                 <span class="wave">👋</span>
 
                 <div>
                     <h1>Welcome back, Swetha!</h1>
                     <p>Here's what's happening with your store today.</p>
                 </div>
+
             </div>
 
             <div class="banner-decoration">
@@ -136,53 +141,77 @@
         <section class="stats">
 
             <div class="stat-card green">
+
                 <div class="stat-icon">▣</div>
+
                 <div>
                     <p>Total Products</p>
                     <h2>512</h2>
                     <small>↑ 18% this month</small>
                 </div>
+
                 <span class="dots">⋮</span>
+
             </div>
 
+
             <div class="stat-card orange">
+
                 <div class="stat-icon">♧</div>
+
                 <div>
                     <p>Total Orders</p>
                     <h2>156</h2>
                     <small>↑ 14% this month</small>
                 </div>
+
                 <span class="dots">⋮</span>
+
             </div>
 
+
             <div class="stat-card purple">
+
                 <div class="stat-icon">₹</div>
+
                 <div>
                     <p>Total Sales</p>
                     <h2>₹ 3,45,000</h2>
                     <small>↑ 22% this month</small>
                 </div>
+
                 <span class="dots">⋮</span>
+
             </div>
 
+
             <div class="stat-card blue">
+
                 <div class="stat-icon">♟</div>
+
                 <div>
                     <p>Customers</p>
                     <h2>680</h2>
                     <small>↑ 12% this month</small>
                 </div>
+
                 <span class="dots">⋮</span>
+
             </div>
 
+
             <div class="stat-card yellow">
+
                 <div class="stat-icon">★</div>
+
                 <div>
                     <p>Reviews</p>
                     <h2>4.8/5</h2>
                     <small>↑ 6% this month</small>
                 </div>
+
                 <span class="dots">⋮</span>
+
             </div>
 
         </section>
@@ -191,13 +220,18 @@
         <!-- MIDDLE SECTION -->
         <section class="middle-grid">
 
+
             <!-- SALES OVERVIEW -->
             <div class="dashboard-card sales-card">
 
                 <div class="card-header">
+
                     <h3>〽 Sales Overview</h3>
+
                     <button>This Month　⌄</button>
+
                 </div>
+
 
                 <div class="chart">
 
@@ -209,6 +243,7 @@
                         <span>0</span>
                     </div>
 
+
                     <div class="chart-area">
 
                         <div class="grid-line"></div>
@@ -216,8 +251,11 @@
                         <div class="grid-line"></div>
                         <div class="grid-line"></div>
 
-                        <svg viewBox="0 0 600 200"
-                             preserveAspectRatio="none">
+
+                        <svg
+                            viewBox="0 0 600 200"
+                            preserveAspectRatio="none"
+                        >
 
                             <path
                                 d="M0,155
@@ -229,16 +267,20 @@
                                    C540,85 560,80 600,55"
                                 fill="none"
                                 stroke="#4c8b6a"
-                                stroke-width="4"/>
+                                stroke-width="4"
+                            />
 
                         </svg>
 
+
                         <div class="chart-labels">
+
                             <span>Apr 1</span>
                             <span>Apr 8</span>
                             <span>Apr 15</span>
                             <span>Apr 22</span>
                             <span>Apr 30</span>
+
                         </div>
 
                     </div>
@@ -254,6 +296,7 @@
                 <div class="card-header">
                     <h3>⚡ Quick Actions</h3>
                 </div>
+
 
                 <div class="quick-actions">
 
@@ -286,47 +329,68 @@
             <div class="dashboard-card activity-card">
 
                 <div class="card-header">
+
                     <h3>◷ Recent Activity</h3>
+
                     <a href="#">View All →</a>
+
                 </div>
+
 
                 <div class="activity">
 
+
                     <div class="activity-item">
+
                         <div class="activity-icon">🛒</div>
+
                         <div>
                             <strong>New order received</strong>
                             <p>#ORD1245　•　₹ 1,250</p>
                             <small>2 hours ago</small>
                         </div>
+
                     </div>
 
+
                     <div class="activity-item">
+
                         <div class="activity-icon">♟</div>
+
                         <div>
                             <strong>New customer registered</strong>
                             <p>Shafeen Naaz</p>
                             <small>4 hours ago</small>
                         </div>
+
                     </div>
 
+
                     <div class="activity-item">
+
                         <div class="activity-icon">▣</div>
+
                         <div>
                             <strong>Product added</strong>
                             <p>Wireless Mouse</p>
                             <small>5 hours ago</small>
                         </div>
+
                     </div>
 
+
                     <div class="activity-item">
+
                         <div class="activity-icon">★</div>
+
                         <div>
                             <strong>New review</strong>
                             <p>4.8/5 for Casual Shirt</p>
                             <small>6 hours ago</small>
                         </div>
+
                     </div>
+
 
                 </div>
 
@@ -338,17 +402,23 @@
         <!-- BOTTOM SECTION -->
         <section class="bottom-grid">
 
+
             <!-- PRODUCT LIST -->
             <div class="dashboard-card product-card">
 
                 <div class="card-header">
+
                     <h3>▣ Product List</h3>
+
                     <a href="#">View All →</a>
+
                 </div>
+
 
                 <table>
 
                     <thead>
+
                         <tr>
                             <th>PRODUCT</th>
                             <th>CATEGORY</th>
@@ -357,45 +427,112 @@
                             <th>STATUS</th>
                             <th>ACTION</th>
                         </tr>
+
                     </thead>
+
 
                     <tbody>
 
+
                         <tr>
+
                             <td>👕 Classic Men Shirt</td>
-                            <td><span class="tag green-tag">Men</span></td>
+
+                            <td>
+                                <span class="tag green-tag">
+                                    Men
+                                </span>
+                            </td>
+
                             <td>₹999</td>
+
                             <td>50</td>
-                            <td><span class="status">Active</span></td>
+
+                            <td>
+                                <span class="status">
+                                    Active
+                                </span>
+                            </td>
+
                             <td>•••</td>
+
                         </tr>
 
+
                         <tr>
+
                             <td>👗 Women Dress</td>
-                            <td><span class="tag pink-tag">Women</span></td>
+
+                            <td>
+                                <span class="tag pink-tag">
+                                    Women
+                                </span>
+                            </td>
+
                             <td>₹1,499</td>
+
                             <td>30</td>
-                            <td><span class="status">Active</span></td>
+
+                            <td>
+                                <span class="status">
+                                    Active
+                                </span>
+                            </td>
+
                             <td>•••</td>
+
                         </tr>
 
+
                         <tr>
+
                             <td>👟 Sports Shoes</td>
-                            <td><span class="tag purple-tag">Footwear</span></td>
+
+                            <td>
+                                <span class="tag purple-tag">
+                                    Footwear
+                                </span>
+                            </td>
+
                             <td>₹2,499</td>
+
                             <td>25</td>
-                            <td><span class="status">Active</span></td>
+
+                            <td>
+                                <span class="status">
+                                    Active
+                                </span>
+                            </td>
+
                             <td>•••</td>
+
                         </tr>
 
+
                         <tr>
+
                             <td>🎒 Backpack</td>
-                            <td><span class="tag yellow-tag">Bags</span></td>
+
+                            <td>
+                                <span class="tag yellow-tag">
+                                    Bags
+                                </span>
+                            </td>
+
                             <td>₹1,099</td>
+
                             <td>40</td>
-                            <td><span class="status">Active</span></td>
+
+                            <td>
+                                <span class="status">
+                                    Active
+                                </span>
+                            </td>
+
                             <td>•••</td>
+
                         </tr>
+
 
                     </tbody>
 
@@ -408,10 +545,24 @@
             <div class="shopping-card">
 
                 <div>
-                    <h2>Better<br>Shopping<br>Experience</h2>
-                    <p>Quality products,<br>Happy customers.</p>
-                    <button>Shop Now →</button>
+
+                    <h2>
+                        Better<br>
+                        Shopping<br>
+                        Experience
+                    </h2>
+
+                    <p>
+                        Quality products,<br>
+                        Happy customers.
+                    </p>
+
+                    <button>
+                        Shop Now →
+                    </button>
+
                 </div>
+
 
                 <div class="shopping-bags">
                     🛍️🛍️
@@ -425,33 +576,85 @@
         <!-- STOCK CARDS -->
         <section class="stock-section">
 
+
             <div class="stock-card red-stock">
+
                 <span>◈</span>
+
                 <div>
                     <p>Out of Stock</p>
                     <h2>12</h2>
                 </div>
+
             </div>
 
+
             <div class="stock-card yellow-stock">
+
                 <span>♢</span>
+
                 <div>
                     <p>Low Stock</p>
                     <h2>28</h2>
                 </div>
+
             </div>
 
+
             <div class="stock-card green-stock">
+
                 <span>▣</span>
+
                 <div>
                     <p>In Stock</p>
                     <h2>472</h2>
                 </div>
+
             </div>
+
 
         </section>
 
     </main>
+
+
+    <!-- DASHBOARD SEARCH -->
+    <script>
+
+        const searchInput =
+            document.getElementById("productSearch");
+
+        const productRows =
+            document.querySelectorAll(".product-card tbody tr");
+
+
+        searchInput.addEventListener("input", function () {
+
+            const searchText =
+                this.value.toLowerCase().trim();
+
+
+            productRows.forEach(function (row) {
+
+                const productName =
+                    row.cells[0].textContent.toLowerCase();
+
+
+                if (productName.includes(searchText)) {
+
+                    row.style.display = "";
+
+                } else {
+
+                    row.style.display = "none";
+
+                }
+
+            });
+
+        });
+
+    </script>
 
 </body>
 </html>

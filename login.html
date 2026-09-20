@@ -6,78 +6,571 @@
 
     <title>SwethaMart - Login</title>
 
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Existing CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "DM Sans", sans-serif;
+            background: #ffffff;
+        }
+
+        /* MAIN CONTAINER */
+
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+        }
+
+
+        /* LEFT SIDE */
+
+        .left-section {
+            width: 46%;
+            min-height: 100vh;
+            background: #f7f3ff;
+            position: relative;
+            overflow: hidden;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        /* LAVENDER CORNERS */
+
+        .top-shape {
+            position: absolute;
+            top: -90px;
+            left: -90px;
+            width: 260px;
+            height: 260px;
+            background: #c9adff;
+            transform: rotate(45deg);
+            border-radius: 25px;
+        }
+
+        .bottom-shape {
+            position: absolute;
+            bottom: -150px;
+            left: -100px;
+            width: 390px;
+            height: 300px;
+            background: #c9adff;
+            transform: rotate(45deg);
+            border-radius: 35px;
+        }
+
+
+        /* BRAND */
+
+        .brand {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            margin-bottom: 65px;
+        }
+
+        .brand h1 {
+            font-family: "Pacifico", cursive;
+            font-size: 57px;
+            font-weight: 400;
+            color: #4e2c92;
+            line-height: 1.1;
+        }
+
+        .brand h1 span {
+            color: #9b70e8;
+        }
+
+        .brand p {
+            margin-top: 12px;
+            color: #604b88;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+
+        /* SHOPPING CART */
+
+        .cart-illustration {
+            position: relative;
+            z-index: 2;
+            width: 250px;
+            height: 210px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-circle {
+            width: 225px;
+            height: 180px;
+            border-radius: 50%;
+            background: #eee5ff;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart {
+            font-size: 105px;
+            filter: grayscale(20%);
+        }
+
+
+        /* RIGHT SIDE */
+
+        .right-section {
+            width: 54%;
+            min-height: 100vh;
+            background: #ffffff;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+        }
+
+
+        .login-box {
+            width: 100%;
+            max-width: 600px;
+        }
+
+
+        /* HEADING */
+
+        .welcome h2 {
+            font-size: 47px;
+            line-height: 1.05;
+            color: #45278c;
+            font-weight: 700;
+        }
+
+        .welcome h2 span {
+            display: block;
+            font-family: "Pacifico", cursive;
+            font-size: 55px;
+            font-weight: 400;
+            color: #9b70e8;
+            margin-top: 2px;
+        }
+
+        .welcome p {
+            margin-top: 20px;
+            margin-bottom: 42px;
+            color: #6e6690;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+
+        /* FORM */
+
+        form {
+            width: 100%;
+        }
+
+        .field {
+            position: relative;
+            margin-bottom: 22px;
+        }
+
+        .field-icon {
+            position: absolute;
+            left: 22px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 22px;
+            color: #7959b5;
+        }
+
+        .field input {
+            width: 100%;
+            height: 70px;
+
+            border: 2px solid #e0d4fa;
+            border-radius: 17px;
+
+            padding: 0 55px 0 62px;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 17px;
+            color: #45356b;
+
+            outline: none;
+            background: #ffffff;
+
+            transition: 0.2s;
+        }
+
+        .field input:focus {
+            border-color: #a57ce8;
+            box-shadow: 0 0 0 4px rgba(165, 124, 232, 0.10);
+        }
+
+        .field input::placeholder {
+            color: #9a91b3;
+        }
+
+        .eye {
+            position: absolute;
+            right: 22px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 21px;
+            color: #7966a5;
+            cursor: pointer;
+        }
+
+
+        /* OPTIONS */
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin: 4px 2px 25px;
+
+            font-size: 14px;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: #706687;
+        }
+
+        .remember input {
+            width: 16px;
+            height: 16px;
+            accent-color: #9b70e8;
+        }
+
+        .options a {
+            color: #815bc2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+
+        /* LOGIN BUTTON */
+
+        .login-button {
+            width: 100%;
+            height: 66px;
+
+            border: none;
+            border-radius: 17px;
+
+            background: #a77ce8;
+            color: white;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .login-button:hover {
+            background: #9264dc;
+        }
+
+
+        /* DIVIDER */
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+
+            margin: 30px 0 20px;
+
+            color: #aaa0c0;
+            font-size: 14px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #e7ddf8;
+        }
+
+
+        /* SIGN UP */
+
+        .signup {
+            text-align: center;
+            color: #766c8c;
+            font-size: 15px;
+        }
+
+        .signup a {
+            color: #8d61d8;
+            text-decoration: none;
+            font-weight: 700;
+            margin-left: 5px;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 850px) {
+
+            .login-container {
+                flex-direction: column;
+            }
+
+            .left-section {
+                width: 100%;
+                min-height: 360px;
+                padding: 40px 20px;
+            }
+
+            .right-section {
+                width: 100%;
+                min-height: auto;
+                padding: 45px 25px;
+            }
+
+            .brand {
+                margin-bottom: 25px;
+            }
+
+            .brand h1 {
+                font-size: 45px;
+            }
+
+            .cart-illustration {
+                display: none;
+            }
+
+            .welcome h2 {
+                font-size: 36px;
+            }
+
+            .welcome h2 span {
+                font-size: 43px;
+            }
+        }
+
+    </style>
 </head>
+
 
 <body>
 
     <div class="login-container">
 
-        <div class="login-box">
+
+        <!-- LEFT -->
+
+        <section class="left-section">
+
+            <div class="top-shape"></div>
+            <div class="bottom-shape"></div>
+
 
             <div class="brand">
-                <h1>SwethaMart</h1>
-                <p>Shop smart.<br>Shop easy.</p>
+
+                <h1>
+                    Swetha<span>Mart</span> 🛒
+                </h1>
+
+                <p>
+                    Shop Smart&nbsp; • &nbsp;Live Better
+                </p>
+
             </div>
 
-            <div class="welcome">
-                <h2>Welcome Back!</h2>
-                <p>Login to continue shopping</p>
+
+            <div class="cart-illustration">
+
+                <div class="cart-circle">
+                    <div class="cart">🛒</div>
+                </div>
+
             </div>
 
-            <form action="dashboard.html">
+        </section>
 
-                <label>Email</label>
-                <input
-                    type="email"
-                    placeholder="Enter your email"
-                    required
-                >
 
-                <label>Password</label>
-                <input
-                    type="password"
-                    placeholder="Enter your password"
-                    required
-                >
 
-                <div class="options">
+        <!-- RIGHT -->
 
-                    <label class="remember">
-                        <input type="checkbox">
-                        Remember me
-                    </label>
+        <section class="right-section">
 
-                    <a href="#">Forgot Password?</a>
+            <div class="login-box">
+
+
+                <div class="welcome">
+
+                    <h2>
+                        Login to Your
+                        <span>Account</span>
+                    </h2>
+
+                    <p>
+                        Welcome back! Please login to continue
+                        your shopping journey.
+                    </p>
 
                 </div>
 
-                <button type="submit">
-                    Login
-                </button>
 
-            </form>
 
-            <div class="divider">
-                <span>OR</span>
+                <form action="dashboard.html">
+
+
+                    <!-- EMAIL -->
+
+                    <div class="field">
+
+                        <span class="field-icon">✉</span>
+
+                        <input
+                            type="email"
+                            placeholder="Email Address"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="field">
+
+                        <span class="field-icon">🔒</span>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Password"
+                            required
+                        >
+
+                        <span
+                            class="eye"
+                            onclick="togglePassword()"
+                        >
+                            👁
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- OPTIONS -->
+
+                    <div class="options">
+
+                        <label class="remember">
+
+                            <input type="checkbox">
+
+                            Remember me
+
+                        </label>
+
+
+                        <a href="#">
+                            Forgot Password?
+                        </a>
+
+                    </div>
+
+
+
+                    <!-- LOGIN -->
+
+                    <button
+                        type="submit"
+                        class="login-button"
+                    >
+                        Login&nbsp; →
+                    </button>
+
+
+                </form>
+
+
+
+                <!-- DIVIDER -->
+
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+
+
+
+                <!-- SIGNUP -->
+
+                <p class="signup">
+
+                    Don't have an account?
+
+                    <a href="#">
+                        Create Account
+                    </a>
+
+                </p>
+
+
             </div>
 
-            <p class="signup">
-                Don't have an account?
-                <a href="#">Create Account</a>
-            </p>
-
-            <p class="secure">
-                🔒 Secure &amp; safe shopping
-            </p>
-
-        </div>
+        </section>
 
     </div>
+
+
+
+    <!-- PASSWORD SHOW / HIDE -->
+
+    <script>
+
+        function togglePassword() {
+
+            const password =
+                document.getElementById("password");
+
+            if (password.type === "password") {
+
+                password.type = "text";
+
+            } else {
+
+                password.type = "password";
+
+            }
+
+        }
+
+    </script>
 
 </body>
 </html>

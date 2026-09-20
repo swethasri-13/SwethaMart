@@ -8,7 +8,6 @@ body {
     font-family: "Poppins", sans-serif;
     background: #eef3ff;
     min-height: 100vh;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +16,6 @@ body {
 .login-container {
     width: 100%;
     min-height: 100vh;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,20 +24,16 @@ body {
 .login-box {
     width: 430px;
     background: #ffffff;
-
     padding: 40px;
     border-radius: 20px;
-
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
 }
 
 /* SwethaMart */
-
 .brand {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     margin-bottom: 30px;
 }
 
@@ -47,7 +41,6 @@ body {
     font-family: "Poppins", sans-serif;
     font-size: 36px;
     font-weight: 700;
-
     color: #2864e8;
     letter-spacing: 0.5px;
 }
@@ -59,7 +52,6 @@ body {
 }
 
 /* Welcome */
-
 .welcome {
     margin-bottom: 25px;
 }
@@ -68,7 +60,6 @@ body {
     font-size: 23px;
     font-weight: 600;
     color: #222222;
-
     margin-bottom: 5px;
 }
 
@@ -78,36 +69,26 @@ body {
 }
 
 /* Labels */
-
 form label {
     display: block;
-
     font-size: 13px;
     font-weight: 500;
     color: #333333;
-
     margin-bottom: 7px;
 }
 
 /* Input */
-
 form input[type="email"],
 form input[type="password"] {
     width: 100%;
     height: 50px;
-
     padding: 0 15px;
-
     border: 1px solid #dddddd;
     border-radius: 10px;
-
     background: #ffffff;
-
     font-size: 13px;
     color: #333333;
-
     outline: none;
-
     margin-bottom: 18px;
 }
 
@@ -117,23 +98,18 @@ form input[type="password"]:focus {
 }
 
 /* Options */
-
 .options {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     margin-bottom: 22px;
 }
 
 .remember {
     display: flex !important;
     align-items: center;
-
     gap: 6px;
-
     margin: 0 !important;
-
     font-size: 12px !important;
     font-weight: 400 !important;
 }
@@ -146,26 +122,20 @@ form input[type="password"]:focus {
 .options a {
     font-size: 12px;
     color: #2864e8;
-
     text-decoration: none;
 }
 
 /* Login Button */
-
 button {
     width: 100%;
     height: 50px;
-
     border: none;
     border-radius: 10px;
-
     background: #2864e8;
     color: #ffffff;
-
     font-family: "Poppins", sans-serif;
     font-size: 14px;
     font-weight: 600;
-
     cursor: pointer;
 }
 
@@ -174,15 +144,11 @@ button:hover {
 }
 
 /* Divider */
-
 .divider {
     display: flex;
     align-items: center;
-
     gap: 12px;
-
     margin: 25px 0;
-
     color: #999999;
     font-size: 11px;
 }
@@ -190,46 +156,34 @@ button:hover {
 .divider::before,
 .divider::after {
     content: "";
-
     flex: 1;
-
     height: 1px;
-
     background: #dddddd;
 }
 
 /* Sign Up */
-
 .signup {
     text-align: center;
-
     font-size: 12px;
     color: #777777;
 }
 
 .signup a {
     color: #2864e8;
-
     font-weight: 600;
-
     text-decoration: none;
 }
 
 /* Secure */
-
 .secure {
     text-align: center;
-
     margin-top: 20px;
-
     font-size: 11px;
     color: #999999;
 }
 
 /* Mobile */
-
 @media (max-width: 500px) {
-
     .login-box {
         width: calc(100% - 30px);
         padding: 30px 25px;
@@ -239,6 +193,7 @@ button:hover {
         font-size: 32px;
     }
 }
+
 /* ==============================
    SWETHA MART DASHBOARD
    ============================== */
@@ -959,23 +914,9 @@ td {
         grid-column: auto;
     }
 }
+
 /* ================================
    SWETHAMART - PRODUCTS PAGE
-   ================================ */
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #dff1f4;
-    color: #14213d;
-}
-
-/* ================================
-   MAIN LAYOUT
    ================================ */
 
 .layout {
@@ -983,10 +924,7 @@ body {
     background: #dff1f4;
 }
 
-/* ================================
-   SIDEBAR
-   ================================ */
-
+/* PRODUCTS SIDEBAR */
 .layout .sidebar {
     width: 220px;
     min-height: 100vh;
@@ -999,8 +937,6 @@ body {
     bottom: 0;
     z-index: 10;
 }
-
-/* Logo */
 
 .layout .logo {
     display: flex;
@@ -1020,8 +956,6 @@ body {
     font-weight: bold;
 }
 
-/* Admin text */
-
 .layout .admin {
     font-size: 11px;
     opacity: 0.7;
@@ -1029,8 +963,6 @@ body {
     margin-left: 44px;
     margin-bottom: 25px;
 }
-
-/* Profile */
 
 .layout .profile {
     background: rgba(255, 255, 255, 0.12);
@@ -1070,8 +1002,6 @@ body {
     margin-top: 4px;
 }
 
-/* Menu */
-
 .layout .menu {
     border-top: 1px solid rgba(255, 255, 255, 0.12);
     padding-top: 14px;
@@ -1097,47 +1027,20 @@ body {
     background: #294273;
 }
 
-/* Add simple icons before menu items */
-
-.layout .menu a:nth-child(1)::before {
-    content: "⌂";
-}
-
-.layout .menu a:nth-child(2)::before {
-    content: "＋";
-}
-
-.layout .menu a:nth-child(3)::before {
-    content: "◆";
-}
-
-.layout .menu a:nth-child(4)::before {
-    content: "▦";
-}
-
-.layout .menu a:nth-child(5)::before {
-    content: "🛒";
-}
-
-.layout .menu a:nth-child(6)::before {
-    content: "♟";
-}
-
-.layout .menu a:nth-child(7)::before {
-    content: "♧";
-}
-
-.layout .menu a:nth-child(8)::before {
-    content: "▥";
-}
+.layout .menu a:nth-child(1)::before { content: "⌂"; }
+.layout .menu a:nth-child(2)::before { content: "＋"; }
+.layout .menu a:nth-child(3)::before { content: "◆"; }
+.layout .menu a:nth-child(4)::before { content: "▦"; }
+.layout .menu a:nth-child(5)::before { content: "🛒"; }
+.layout .menu a:nth-child(6)::before { content: "♟"; }
+.layout .menu a:nth-child(7)::before { content: "♧"; }
+.layout .menu a:nth-child(8)::before { content: "▥"; }
 
 .layout .menu a::before {
     width: 18px;
     text-align: center;
     font-size: 17px;
 }
-
-/* Business card */
 
 .layout .business {
     position: absolute;
@@ -1171,8 +1074,6 @@ body {
     font-size: 11px;
 }
 
-/* Weather - added using CSS */
-
 .layout .sidebar::after {
     content: "🌤️   28°C\A       Mostly cloudy";
     white-space: pre;
@@ -1184,20 +1085,13 @@ body {
     color: white;
 }
 
-/* ================================
-   MAIN CONTENT
-   ================================ */
-
+/* PRODUCTS MAIN */
 .layout .main {
     margin-left: 220px;
     width: calc(100% - 220px);
     padding: 18px;
     min-height: 100vh;
 }
-
-/* ================================
-   TOP BAR
-   ================================ */
 
 .layout .topbar {
     display: flex;
@@ -1223,10 +1117,6 @@ body {
     font-size: 12px;
 }
 
-/* ================================
-   WELCOME / TITLE
-   ================================ */
-
 .layout .welcome {
     background: white;
     border-radius: 16px;
@@ -1246,10 +1136,6 @@ body {
     font-size: 12px;
     color: #68758b;
 }
-
-/* ================================
-   STAT CARDS
-   ================================ */
 
 .layout .stats {
     display: grid;
@@ -1277,10 +1163,6 @@ body {
     color: #142653;
 }
 
-/* ================================
-   PRODUCT SECTION
-   ================================ */
-
 .layout .section {
     background: white;
     border-radius: 16px;
@@ -1294,10 +1176,6 @@ body {
     color: #142653;
     font-size: 19px;
 }
-
-/* ================================
-   PRODUCT TABLE
-   ================================ */
 
 .layout table {
     width: 100%;
@@ -1326,15 +1204,11 @@ body {
     background: #f8fcfc;
 }
 
-/* Product name */
-
 .layout td:first-child {
     font-weight: 600;
     color: #142653;
     font-size: 14px;
 }
-
-/* Category */
 
 .layout .category {
     background: #e8f3f5;
@@ -1345,8 +1219,6 @@ body {
     display: inline-block;
 }
 
-/* Status */
-
 .layout .status {
     padding: 5px 10px;
     border-radius: 7px;
@@ -1355,10 +1227,6 @@ body {
     background: #e4f5eb;
     color: #28734b;
 }
-
-/* ================================
-   BOTTOM CARDS
-   ================================ */
 
 .layout .bottom {
     display: grid;
@@ -1384,20 +1252,12 @@ body {
     color: #142653;
 }
 
-/* ================================
-   BUTTONS
-   ================================ */
-
 .layout button {
     cursor: pointer;
 }
 
-/* ================================
-   RESPONSIVE
-   ================================ */
-
+/* PRODUCTS RESPONSIVE */
 @media (max-width: 1000px) {
-
     .layout .stats {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1408,7 +1268,6 @@ body {
 }
 
 @media (max-width: 750px) {
-
     .layout .sidebar {
         width: 190px;
     }
@@ -1432,7 +1291,6 @@ body {
 }
 
 @media (max-width: 600px) {
-
     .layout .sidebar {
         width: 70px;
         padding: 15px 8px;
@@ -1488,8 +1346,8 @@ body {
         width: 100%;
     }
 }
-/* ===== MAKE PRODUCTS CONTENT WIDER ===== */
 
+/* ===== MAKE PRODUCTS CONTENT WIDER ===== */
 .layout .main {
     padding-left: 30px;
     padding-right: 30px;
@@ -1518,8 +1376,8 @@ body {
 .layout table {
     width: 100%;
 }
-/* ===== FINAL WIDTH FIX ===== */
 
+/* ===== FINAL WIDTH FIX ===== */
 .layout .main {
     align-items: stretch !important;
 }
@@ -1540,8 +1398,8 @@ body {
 .layout .section {
     width: 100% !important;
 }
-/* CART PAGE */
 
+/* CART PAGE */
 .cart-container {
     width: 90%;
     max-width: 900px;
@@ -1554,7 +1412,6 @@ body {
     margin-bottom: 15px;
     border-radius: 12px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1593,3 +1450,45 @@ body {
     color: white;
     cursor: pointer;
 }
+
+/* ================================
+   SAME SEARCH BAR - DASHBOARD + PRODUCTS
+   ================================ */
+.dashboard-page .search-box,
+.layout .topbar .search-box {
+    width: 400px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 14px;
+    padding: 0 14px;
+    box-sizing: border-box;
+}
+
+.dashboard-page .search-box span,
+.layout .topbar .search-box span {
+    font-size: 17px;
+    flex-shrink: 0;
+}
+
+.dashboard-page .search-box input,
+.layout .topbar .search-box input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    color: #14213d;
+}
+
+.dashboard-page .search-box input::placeholder,
+.layout .topbar .search-box input::placeholder {
+    color: #777;
+}
+

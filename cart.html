@@ -1,38 +1,578 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>SwethaMart - Cart</title>
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f7f9;
+            color: #14213d;
+        }
+
+        .topbar {
+            height: 75px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4c8b6a;
+        }
+
+        .nav {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .cart-link {
+            background: #4c8b6a;
+            color: white !important;
+            padding: 10px 18px;
+            border-radius: 10px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 35px auto;
+        }
+
+        .page-title {
+            margin-bottom: 25px;
+        }
+
+        .page-title h1 {
+            font-size: 28px;
+        }
+
+        .page-title p {
+            color: #777;
+            margin-top: 6px;
+        }
+
+        .cart-layout {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 25px;
+        }
+
+        .cart-card,
+        .summary-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 70px 1fr auto auto auto;
+            align-items: center;
+            gap: 18px;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .product-image {
+            width: 65px;
+            height: 65px;
+            border-radius: 12px;
+            background: #f1f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        .product-info h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .product-info p {
+            font-size: 13px;
+            color: #777;
+        }
+
+        .price {
+            font-weight: bold;
+        }
+
+        .quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quantity button {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        .quantity span {
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .remove {
+            border: none;
+            background: transparent;
+            color: #e05252;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .summary-card h2 {
+            margin-bottom: 20px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+            color: #555;
+        }
+
+        .total {
+            border-top: 1px solid #eee;
+            padding-top: 18px;
+            margin-top: 18px;
+            font-size: 19px;
+            font-weight: bold;
+            color: #14213d;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            margin-top: 20px;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #4c8b6a;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .checkout-btn:hover {
+            background: #3d7558;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 60px 20px;
+            color: #777;
+        }
+
+        .empty-cart h2 {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 800px) {
+
+            .cart-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .cart-item {
+                grid-template-columns: 60px 1fr;
+            }
+
+            .price,
+            .quantity,
+            .remove {
+                grid-column: 2;
+            }
+
+            .topbar {
+                padding: 0 20px;
+            }
+        }
+
+    </style>
+
 </head>
 
 <body>
 
-    <h1>Shopping Cart</h1>
+    <header class="topbar">
 
-    <div class="cart-container">
-
-        <div class="cart-item">
-            <div>
-                <h3>Product Name</h3>
-                <p>₹45000</p>
-            </div>
-
-            <div>
-                <button>-</button>
-                <span>1</span>
-                <button>+</button>
-                <button>Remove</button>
-            </div>
+        <div class="logo">
+            🛍️ SwethaMart
         </div>
 
-        <div class="cart-total">
-            <h2>Total: ₹45000</h2>
-            <button>Proceed to Checkout</button>
+        <nav class="nav">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a href="cart.html" class="cart-link">
+                🛒 Cart
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="container">
+
+        <div class="page-title">
+
+            <h1>
+                Shopping Cart
+            </h1>
+
+            <p>
+                Review your products before checkout.
+            </p>
+
         </div>
 
-    </div>
+
+        <div class="cart-layout">
+
+
+            <!-- CART PRODUCTS -->
+
+            <div class="cart-card">
+
+                <div id="cartItems"></div>
+
+            </div>
+
+
+            <!-- CART SUMMARY -->
+
+            <div class="summary-card">
+
+                <h2>
+                    Cart Summary
+                </h2>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Items
+                    </span>
+
+                    <span id="itemCount">
+                        0
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <span id="subtotal">
+                        ₹0
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Delivery
+                    </span>
+
+                    <span>
+                        Free
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row total">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <span id="cartTotal">
+                        ₹0
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="checkout-btn"
+                    onclick="checkout()">
+
+                    Proceed to Checkout →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        let cart =
+            JSON.parse(localStorage.getItem("swethaCart")) || [];
+
+
+        /* ================= DISPLAY CART ================= */
+
+        function displayCart() {
+
+            const cartItems =
+                document.getElementById("cartItems");
+
+            cartItems.innerHTML = "";
+
+
+            if (cart.length === 0) {
+
+                cartItems.innerHTML = `
+
+                    <div class="empty-cart">
+
+                        <h2>
+                            🛒 Your cart is empty
+                        </h2>
+
+                        <p>
+                            Add some products to continue shopping.
+                        </p>
+
+                    </div>
+
+                `;
+
+                updateTotal();
+
+                return;
+            }
+
+
+            cart.forEach(function(product, index) {
+
+                cartItems.innerHTML += `
+
+                    <div class="cart-item">
+
+                        <div class="product-image">
+                            ${product.image}
+                        </div>
+
+
+                        <div class="product-info">
+
+                            <h3>
+                                ${product.name}
+                            </h3>
+
+                            <p>
+                                ${product.category}
+                            </p>
+
+                        </div>
+
+
+                        <div class="price">
+
+                            ₹${product.price.toLocaleString("en-IN")}
+
+                        </div>
+
+
+                        <div class="quantity">
+
+                            <button
+                                onclick="changeQuantity(${index}, -1)">
+
+                                −
+
+                            </button>
+
+
+                            <span>
+                                ${product.quantity}
+                            </span>
+
+
+                            <button
+                                onclick="changeQuantity(${index}, 1)">
+
+                                +
+
+                            </button>
+
+                        </div>
+
+
+                        <button
+                            class="remove"
+                            onclick="removeItem(${index})">
+
+                            Remove
+
+                        </button>
+
+                    </div>
+
+                `;
+
+            });
+
+
+            updateTotal();
+
+        }
+
+
+        /* ================= CHANGE QUANTITY ================= */
+
+        function changeQuantity(index, change) {
+
+            cart[index].quantity += change;
+
+
+            if (cart[index].quantity <= 0) {
+
+                cart.splice(index, 1);
+
+            }
+
+
+            saveCart();
+
+            displayCart();
+
+        }
+
+
+        /* ================= REMOVE PRODUCT ================= */
+
+        function removeItem(index) {
+
+            cart.splice(index, 1);
+
+            saveCart();
+
+            displayCart();
+
+        }
+
+
+        /* ================= UPDATE TOTAL ================= */
+
+        function updateTotal() {
+
+            let total = 0;
+
+            let count = 0;
+
+
+            cart.forEach(function(product) {
+
+                total +=
+                    product.price * product.quantity;
+
+                count +=
+                    product.quantity;
+
+            });
+
+
+            document.getElementById("itemCount").textContent =
+                count;
+
+
+            document.getElementById("subtotal").textContent =
+                "₹" + total.toLocaleString("en-IN");
+
+
+            document.getElementById("cartTotal").textContent =
+                "₹" + total.toLocaleString("en-IN");
+
+        }
+
+
+        /* ================= SAVE CART ================= */
+
+        function saveCart() {
+
+            localStorage.setItem(
+                "swethaCart",
+                JSON.stringify(cart)
+            );
+
+        }
+
+
+        /* ================= CHECKOUT ================= */
+
+        function checkout() {
+
+            if (cart.length === 0) {
+
+                alert("Your cart is empty!");
+
+                return;
+
+            }
+
+
+            window.location.href =
+                "checkout.html";
+
+        }
+
+
+        /* ================= START ================= */
+
+        displayCart();
+
+    </script>
 
 </body>
+
 </html>
