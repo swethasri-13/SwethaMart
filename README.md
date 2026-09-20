@@ -19,3 +19,4 @@ Created for a simple and organized shopping workflow.
 Focused on a user-friendly shopping experience.
 Supports a structured product and order workflow.
 Organized pages help users find products easily.
+Designed to keep shopping tasks clear and manageable.
