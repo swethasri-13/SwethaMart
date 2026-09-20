@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
 
@@ -6,8 +7,12 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
+        // Order History
+        ArrayList<Order> orderHistory = new ArrayList<>();
+
         System.out.println("===== SWETHAMART =====");
 
+        // REGISTRATION
         System.out.print("Enter your name: ");
         String name = sc.nextLine();
 
@@ -21,6 +26,7 @@ public class Main {
 
         System.out.println("\nRegistration successful!");
 
+        // LOGIN
         System.out.println("\n===== LOGIN =====");
 
         System.out.print("Enter email: ");
@@ -34,61 +40,183 @@ public class Main {
 
             System.out.println("\nLogin successful!");
 
-            Product laptop = new Product("Laptop", 50000,"Electronics",10);
-            Product mobile = new Product("Mobile", 20000,"Electronics",15);
-            Product headphone = new Product("Headphone", 2000,"Accessories",20);
+            // AI CHATBOT
+            Chatbot chatbot = new Chatbot();
+            chatbot.startChat();
+
+            // PRODUCTS
+            Product laptop = new Product(
+                    "Laptop", 50000, "Electronics", 10);
+
+            Product mobile = new Product(
+                    "Mobile", 20000, "Electronics", 15);
+
+            Product headphone = new Product(
+                    "Headphone", 2000, "Accessories", 20);
+
+            // SELLER PRODUCT MANAGEMENT
+            Seller seller = new Seller();
+
+            seller.addProduct(
+                    "Keyboard",
+                    1500,
+                    "Accessories",
+                    25
+            );
 
             System.out.println("\n===== PRODUCTS =====");
-            System.out.println("1. Laptop - Rs.50000 - Stock:"+laptop.stock);
-            System.out.println("2. Mobile - Rs.20000- Stock:"+mobile.stock);
-            System.out.println("3. Headphone - Rs.2000- Stock:"+headphone.stock);
+            System.out.println("1. Laptop - Rs.50000 - Stock:" + laptop.stock);
+            System.out.println("2. Mobile - Rs.20000 - Stock:" + mobile.stock);
+            System.out.println("3. Headphone - Rs.2000 - Stock:" + headphone.stock);
+            System.out.println("4. Keyboard - Rs.1500 - Stock:25");
 
             System.out.print("Choose product: ");
             int choice = sc.nextInt();
 
             Product selectedProduct = null;
 
-            if (choice == 1)
+            if (choice == 1) {
                 selectedProduct = laptop;
-            else if (choice == 2)
+            }
+            else if (choice == 2) {
                 selectedProduct = mobile;
-            else if (choice == 3)
+            }
+            else if (choice == 3) {
                 selectedProduct = headphone;
+            }
+            else if (choice == 4) {
+                selectedProduct = new Product(
+                        "Keyboard",
+                        1500,
+                        "Accessories",
+                        25
+                );
+            }
 
             if (selectedProduct != null) {
 
                 System.out.print("Enter quantity: ");
-int quantity = sc.nextInt();
+                int quantity = sc.nextInt();
 
-if (quantity > 0) {
-    if(quantity>selectedProduct.stock){
-        System.out.println("Not enough stock available!!");
-        return ;
-    }
+                if (quantity > 0) {
 
-    Cart cart = new Cart();
-    cart.addProduct(selectedProduct, quantity);
-    cart.displayCart();
+                    if (quantity > selectedProduct.stock) {
+                        System.out.println("Not enough stock available!");
+                        return;
+                    }
 
-    Order order = new Order(selectedProduct, quantity);
-    order.placeOrder();
-    selectedProduct.stock -=quantity;
+                    // CART
+                    Cart cart = new Cart();
 
-    int total = selectedProduct.price * quantity;
+                    cart.addProduct(selectedProduct, quantity);
 
-    Payment payment = new Payment(total);
-    payment.makePayment();
+                    cart.displayCart();
 
-} else {
-    System.out.println("Invalid quantity!");
-}
+                    // CHECKOUT
+                    sc.nextLine();
 
-            } else {
+                    Checkout checkout = new Checkout();
+
+                    checkout.processCheckout(
+                            selectedProduct, quantity);
+
+                    // ORDER
+                    Order order = new Order(
+                            selectedProduct, quantity);
+
+                    order.placeOrder();
+
+                    // Add order to history
+                    orderHistory.add(order);
+
+                    // Update stock
+                    selectedProduct.stock -= quantity;
+
+                    // PAYMENT
+                    int total = selectedProduct.price * quantity;
+
+                    Payment payment = new Payment(total);
+
+                    payment.makePayment();
+
+                    // PRODUCT REVIEW
+                    System.out.println("\n===== PRODUCT REVIEW =====");
+
+                    System.out.print("Enter rating (1-5): ");
+                    int rating = sc.nextInt();
+
+                    sc.nextLine();
+
+                    System.out.print("Enter your review: ");
+                    String reviewText = sc.nextLine();
+
+                    if (rating >= 1 && rating <= 5) {
+
+                        Review review = new Review(
+                                selectedProduct,
+                                reviewText,
+                                rating
+                        );
+
+                        review.displayReview();
+
+                    }
+                    else {
+                        System.out.println("Invalid rating!");
+                    }
+
+                    // ADMIN PANEL
+                    Admin admin = new Admin();
+
+                    admin.displayProduct(selectedProduct);
+
+                    System.out.print("\nEnter new stock: ");
+                    int newStock = sc.nextInt();
+
+                    admin.updateStock(
+                            selectedProduct,
+                            newStock
+                    );
+
+                    // ORDER HISTORY
+                    System.out.println("\n===== ORDER HISTORY =====");
+
+                    for (Order previousOrder : orderHistory) {
+
+                        System.out.println(
+                                "Product: " +
+                                previousOrder.product.name);
+
+                        System.out.println(
+                                "Category: " +
+                                previousOrder.product.category);
+
+                        System.out.println(
+                                "Quantity: " +
+                                previousOrder.quantity);
+
+                        System.out.println(
+                                "Total: Rs." +
+                                (previousOrder.product.price *
+                                previousOrder.quantity));
+
+                        System.out.println("------------------------");
+                    }
+
+                }
+                else {
+                    System.out.println("Invalid quantity!");
+                }
+
+            }
+            else {
                 System.out.println("Invalid product!");
             }
 
-        } else {
-            System.out.println("Login failed! Please check your email or password!");
+        }
+        else {
+            System.out.println(
+                    "Login failed! Please check your email or password!");
         }
 
         sc.close();
