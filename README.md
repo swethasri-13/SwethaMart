@@ -6,3 +6,6 @@ Developed as a web-based shopping project.
 Features include product browsing, cart management and order processing.
 Designed to make online shopping simple and user-friendly.
 Project is currently under development.
+SwethaMart supports product browsing and shopping management.
+SwethaMart supports product browsing and shopping management.
+Goal: provide a convenient and organized shopping experience.
