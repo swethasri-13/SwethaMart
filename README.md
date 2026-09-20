@@ -18,3 +18,4 @@ SwethaMart is designed for smooth and convenient shopping.
 Created for a simple and organized shopping workflow.
 Focused on a user-friendly shopping experience.
 Supports a structured product and order workflow.
+Organized pages help users find products easily.
