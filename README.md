@@ -10,3 +10,4 @@ SwethaMart supports product browsing and shopping management.
 SwethaMart supports product browsing and shopping management.
 Goal: provide a convenient and organized shopping experience.
 Built with a clean and simple interface.
+Easy navigation and organized shopping workflow.
