@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SwethaMart - Products</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #dff1f4;
+            color: #14213d;
+        }
+
+        /* ================= LAYOUT ================= */
+
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+
+        /* ================= SIDEBAR ================= */
+
+        .sidebar {
+            width: 220px;
+            min-height: 100vh;
+            background: #142653;
+            color: white;
+            padding: 20px 14px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 28px;
+        }
+
+        .brand-icon {
+            font-size: 34px;
+        }
+
+        .brand h2 {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .brand p {
+            font-size: 11px;
+            margin: 4px 0 0;
+            opacity: .7;
+        }
+
+
+        /* PROFILE */
+
+        .admin-profile {
+            background: rgba(255,255,255,.12);
+            border-radius: 14px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .profile-circle {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #274235;
+            border: 2px solid #8fc9a7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .admin-profile h3 {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .admin-profile p {
+            font-size: 11px;
+            margin: 4px 0 0;
+            opacity: .7;
+        }
+
+
+        /* MENU */
+
+        .sidebar-menu {
+            border-top: 1px solid rgba(255,255,255,.12);
+            padding-top: 14px;
+        }
+
+        .sidebar-menu a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 11px 12px;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+
+        .sidebar-menu a span {
+            width: 18px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .sidebar-menu a.active {
+            background: #294273;
+        }
+
+
+        /* GROW BUSINESS */
+
+        .sidebar-bottom {
+            display: none;
+        }
+
+        .sidebar-bottom h3 {
+            font-size: 18px;
+            margin: 0 0 12px;
+            font-style: italic;
+        }
+
+        .sidebar-bottom p {
+            font-size: 11px;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .sidebar-bottom button {
+            background: #142653;
+            color: white;
+            border: 0;
+            border-radius: 8px;
+            padding: 9px 14px;
+            font-size: 11px;
+        }
+
+
+        /* WEATHER */
+
+        .weather {
+            position: absolute;
+            bottom: 20px;
+            left: 25px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .weather span {
+            font-size: 25px;
+        }
+
+        .weather strong,
+        .weather small {
+            display: block;
+        }
+
+        .weather strong {
+            font-size: 11px;
+        }
+
+        .weather small {
+            font-size: 9px;
+            opacity: .7;
+        }
+
+
+        /* ================= MAIN ================= */
+
+        .main {
+            margin-left: 220px;
+            width: calc(100% - 220px);
+            padding: 18px;
+        }
+
+
+        /* TOP BAR */
+
+        .topbar {
+            background: white;
+            border-radius: 14px;
+            padding: 12px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .search-box {
+            width: 430px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            border: 1px solid #d6e0e8;
+            border-radius: 10px;
+            padding: 0 14px;
+        }
+
+        .search-box input {
+            width: 100%;
+            border: none;
+            outline: none;
+            padding: 12px 0;
+            font-size: 13px;
+            background: transparent;
+        }
+
+        .top-right {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .notification {
+            font-size: 20px;
+        }
+
+        .top-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .small-circle {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #274273;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .top-profile strong {
+            display: block;
+            font-size: 13px;
+        }
+
+        .top-profile small {
+            display: block;
+            font-size: 10px;
+            color: #777;
+            margin-top: 2px;
+        }
+
+
+        /* WELCOME */
+
+        .welcome {
+            margin-bottom: 18px;
+        }
+
+        .welcome h1 {
+            margin: 0 0 7px;
+            font-size: 27px;
+        }
+
+        .welcome p {
+            margin: 0;
+            color: #607086;
+            font-size: 13px;
+        }
+
+
+        /* ================= STAT CARDS ================= */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .stat {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            min-height: 125px;
+            box-shadow: 0 3px 10px rgba(20,38,83,.05);
+        }
+
+        .stat h3 {
+            font-size: 13px;
+            margin: 0 0 12px;
+            color: #65738a;
+        }
+
+        .stat h2 {
+            margin: 0 0 8px;
+            font-size: 28px;
+        }
+
+        .green {
+            color: #229653;
+            font-size: 12px;
+        }
+
+        .warning {
+            color: #e58b18;
+            font-size: 12px;
+        }
+
+        .danger {
+            color: #df4141;
+            font-size: 12px;
+        }
+
+        .success {
+            color: #209653;
+        }
+
+
+        /* ================= PRODUCT SECTION ================= */
+
+        .section {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 3px 12px rgba(20,38,83,.06);
+        }
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .section-title h2 {
+            margin: 0;
+            font-size: 19px;
+        }
+
+        .add {
+            background: #142653;
+            color: white;
+            border: none;
+            border-radius: 9px;
+            padding: 11px 17px;
+            cursor: pointer;
+        }
+
+
+        /* FILTERS */
+
+        .filters {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .filters input,
+        .filters select {
+            padding: 11px 13px;
+            border: 1px solid #d7e0e7;
+            border-radius: 9px;
+            background: white;
+            color: #4b5870;
+        }
+
+
+        /* ================= TABLE ================= */
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #f4f8fa;
+            color: #65738a;
+            font-size: 11px;
+            padding: 14px 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 15px 12px;
+            border-bottom: 1px solid #edf1f4;
+            font-size: 13px;
+        }
+
+        tr:hover {
+            background: #fafcfd;
+        }
+
+
+        /* PRODUCT */
+
+        .product {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+        }
+
+        .product-image {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: #eef4f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+        }
+
+
+        /* CATEGORY */
+
+        .category {
+            background: #edf5ff;
+            color: #3569bd;
+            padding: 5px 9px;
+            border-radius: 6px;
+            font-size: 11px;
+        }
+
+
+        /* STATUS */
+
+        .status {
+            padding: 6px 10px;
+            border-radius: 7px;
+            font-size: 11px;
+            background: #e8f7ed;
+            color: #229653;
+        }
+
+        .status.low {
+            background: #fff2dc;
+            color: #dc8411;
+        }
+
+        .status.out {
+            background: #ffe7e7;
+            color: #d93d3d;
+        }
+
+        .action {
+            font-size: 20px;
+            text-align: center;
+        }
+
+
+        /* ================= TABLE FOOTER ================= */
+
+        .table-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 16px;
+            color: #68768b;
+            font-size: 12px;
+        }
+
+        .pages button {
+            border: 1px solid #dce4ea;
+            background: white;
+            border-radius: 6px;
+            padding: 7px 11px;
+            margin-left: 4px;
+        }
+
+        .pages .current {
+            background: #294273;
+            color: white;
+        }
+
+
+        /* ================= BOTTOM CARDS ================= */
+
+        .bottom {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 18px;
+        }
+
+        .bottom-card {
+            background: white;
+            border-radius: 14px;
+            padding: 18px 22px;
+            box-shadow: 0 3px 10px rgba(20,38,83,.05);
+        }
+
+        .bottom-card h3 {
+            margin: 0 0 8px;
+            font-size: 13px;
+            color: #65738a;
+        }
+
+        .bottom-card h2 {
+            margin: 0;
+            font-size: 25px;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 1000px) {
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .filters {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<div class="layout">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-icon">🛍️</div>
+
+            <div>
+                <h2>SwethaMart</h2>
+                <p>Admin Dashboard</p>
+            </div>
+
+        </div>
+
+
+        <div class="admin-profile">
+
+            <div class="profile-circle">
+                S
+            </div>
+
+            <div>
+                <h3>Swetha</h3>
+                <p>Admin</p>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+            <a href="dashboard.html">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="#">
+                <span>＋</span>
+                Add Product
+            </a>
+
+            <a href="products.html" class="active">
+                <span>◆</span>
+                Products
+            </a>
+
+            <a href="#">
+                <span>▦</span>
+                Categories
+            </a>
+
+            <a href="#">
+                <span>🛒</span>
+                Orders
+            </a>
+
+            <a href="#">
+                <span>♟</span>
+                Customers
+            </a>
+
+            <a href="#">
+                <span>♧</span>
+                Cart
+            </a>
+
+            <a href="#">
+                <span>▥</span>
+                Reports
+            </a>
+
+        </nav>
+
+
+        <!-- GROW BUSINESS -->
+
+        <div class="sidebar-bottom">
+
+            <h3>
+                Grow your<br>
+                business
+            </h3>
+
+            <p>
+                Manage products,<br>
+                orders and customers<br>
+                all in one place.
+            </p>
+
+            <button>
+                View Reports →
+            </button>
+
+        </div>
+
+
+        <!-- WEATHER -->
+
+        <div class="weather">
+
+            <span>🌤️</span>
+
+            <div>
+                <strong>28°C</strong>
+                <small>Mostly cloudy</small>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+
+        <!-- TOP BAR -->
+
+        <div class="topbar">
+
+            <div class="search-box">
+                🔍
+                <input
+                    type="text"
+                    placeholder="Search products, orders, customers..."
+                >
+            </div>
+
+            <div class="top-right">
+
+                <span class="notification">♧</span>
+
+                <div class="top-profile">
+
+                    <div class="small-circle">S</div>
+
+                    <div>
+                        <strong>Swetha</strong>
+                        <small>Admin</small>
+                    </div>
+
+                    <span>⌄</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= TITLE ================= -->
+
+        <div class="welcome">
+
+            <h1>📦 Product Management</h1>
+
+            <p>
+                Manage your SwethaMart products, stock and categories.
+            </p>
+
+        </div>
+
+
+
+        <!-- ================= STATS ================= -->
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <h3>Total Products</h3>
+
+                <h2>512</h2>
+
+                <span class="green">
+                    ↑ 18% this month
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>Active Products</h3>
+
+                <h2>472</h2>
+
+                <span class="green">
+                    ↑ 12% this month
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>Low Stock</h3>
+
+                <h2>28</h2>
+
+                <span class="warning">
+                    Needs attention
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>Out of Stock</h3>
+
+                <h2>12</h2>
+
+                <span class="danger">
+                    Restock required
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= PRODUCT LIST ================= -->
+
+        <div class="section">
+
+            <div class="section-title">
+
+                <h2>
+                    📦 Product List
+                </h2>
+
+                <button class="add">
+                    + Add Product
+                </button>
+
+            </div>
+
+
+            <!-- FILTERS -->
+
+            <div class="filters">
+
+                <input
+                    type="text"
+                    placeholder="🔍 Search products..."
+                >
+
+                <select>
+                    <option>All Categories</option>
+                    <option>Electronics</option>
+                    <option>Accessories</option>
+                    <option>Fashion</option>
+                    <option>Home & Kitchen</option>
+                </select>
+
+                <select>
+                    <option>All Status</option>
+                    <option>Active</option>
+                    <option>Low Stock</option>
+                    <option>Out of Stock</option>
+                </select>
+
+                <select>
+                    <option>Sort: Newest</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                    <option>Stock</option>
+                </select>
+
+            </div>
+
+
+
+            <!-- TABLE -->
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>PRODUCT</th>
+                            <th>CATEGORY</th>
+                            <th>PRICE</th>
+                            <th>STOCK</th>
+                            <th>STATUS</th>
+                            <th>ACTION</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+
+                        <tr>
+
+                            <td>
+
+                                <div class="product">
+
+                                    <div class="product-image">
+                                        💻
+                                    </div>
+
+                                    <div>
+                                        Laptop Pro 15"
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <span class="category">
+                                    Electronics
+                                </span>
+                            </td>
+
+                            <td>₹50,000</td>
+
+                            <td>10</td>
+
+                            <td>
+                                <span class="status">
+                                    Active
+                                </span>
+                            </td>
+
+                            <td class="action">⋯</td>
+
+                        </tr>
+
+
+
+                        <tr>
+
+                            <td>
+
+                                <div class="product">
+
+                                    <div class="product-image">
+                                        📱
+                                    </div>
+
+                                    <div>
+                                        iPhone 15
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <span class="category">
+                                    Electronics
+                                </span>
+                            </td>
+
+                            <td>₹82,000</td>
+
+                            <td>8</td>
+
+                            <td>
+                                <span class="status">
+                                    Active
+                                </span>
+                            </td>
+
+                            <td class="action">⋯</td>
+
+                        </tr>
+
+
+
+                        <tr>
+
+                            <td>
+
+                                <div class="product">
+
+                                    <div class="product-image">
+                                        🎧
+                                    </div>
+
+                                    <div>
+                                        Noise Cancelling Headphones
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <span class="category">
+                                    Accessories
+                                </span>
+                            </td>
+
+                            <td>₹4,999</td>
+
+                            <td>20</td>
+
+                            <td>
+                                <span class="status">
+                                    Active
+                                </span>
+                            </td>
+
+                            <td class="action">⋯</td>
+
+                        </tr>
+
+
+
+                        <tr>
+
+                            <td>
+
+                                <div class="product">
+
+                                    <div class="product-image">
+                                        ⌚
+                                    </div>
+
+                                    <div>
+                                        Smart Watch
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <span class="category">
+                                    Accessories
+                                </span>
+                            </td>
+
+                            <td>₹7,999</td>
+
+                            <td>5</td>
+
+                            <td>
+                                <span class="status low">
+                                    Low Stock
+                                </span>
+                            </td>
+
+                            <td class="action">⋯</td>
+
+                        </tr>
+
+
+
+                        <tr>
+
+                            <td>
+
+                                <div class="product">
+
+                                    <div class="product-image">
+                                        👟
+                                    </div>
+
+                                    <div>
+                                        Running Shoes
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <span class="category">
+                                    Footwear
+                                </span>
+                            </td>
+
+                            <td>₹2,499</td>
+
+                            <td>0</td>
+
+                            <td>
+                                <span class="status out">
+                                    Out of Stock
+                                </span>
+                            </td>
+
+                            <td class="action">⋯</td>
+
+                        </tr>
+
+
+
+                        <tr>
+
+                            <td>
+
+                                <div class="product">
+
+                                    <div class="product-image">
+                                        🎒
+                                    </div>
+
+                                    <div>
+                                        Backpack
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <span class="category">
+                                    Bags
+                                </span>
+                            </td>
+
+                            <td>₹1,299</td>
+
+                            <td>15</td>
+
+                            <td>
+                                <span class="status">
+                                    Active
+                                </span>
+                            </td>
+
+                            <td class="action">⋯</td>
+
+                        </tr>
+
+
+
+                        <tr>
+
+                            <td>
+
+                                <div class="product">
+
+                                    <div class="product-image">
+                                        🧴
+                                    </div>
+
+                                    <div>
+                                        Water Bottle
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <span class="category">
+                                    Home & Kitchen
+                                </span>
+                            </td>
+
+                            <td>₹499</td>
+
+                            <td>3</td>
+
+                            <td>
+                                <span class="status low">
+                                    Low Stock
+                                </span>
+                            </td>
+
+                            <td class="action">⋯</td>
+
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+
+            <!-- TABLE FOOTER -->
+
+            <div class="table-footer">
+
+                <span>
+                    Showing 1–7 of 7 products
+                </span>
+
+                <div class="pages">
+
+                    <button>‹</button>
+
+                    <button class="current">
+                        1
+                    </button>
+
+                    <button>›</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= STOCK SUMMARY ================= -->
+
+        <div class="bottom">
+
+
+            <div class="bottom-card">
+
+                <h3>
+                    Out of Stock
+                </h3>
+
+                <h2 class="danger">
+                    12
+                </h2>
+
+            </div>
+
+
+            <div class="bottom-card">
+
+                <h3>
+                    Low Stock
+                </h3>
+
+                <h2 class="warning">
+                    28
+                </h2>
+
+            </div>
+
+
+            <div class="bottom-card">
+
+                <h3>
+                    In Stock
+                </h3>
+
+                <h2 class="success">
+                    472
+                </h2>
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+</div>
+
+</body>
+</html>
