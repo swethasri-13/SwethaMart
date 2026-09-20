@@ -33,3 +33,4 @@ Project documentation update.
 Improved project information.
 SwethaMart project details updated.
 Project structure updated.
+Shopping workflow details updated.
